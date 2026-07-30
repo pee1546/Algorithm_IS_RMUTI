@@ -53,10 +53,14 @@
 * คำสั่งทั่วไป (`SET`, `READ`, `WRITE`, `IF`) ทำงาน $1$ ครั้ง
 * ลูปเชิงเส้นแบบ `0 ถึง N` ทำตัววนลูป $n+1$ ครั้ง และคำสั่งข้างในลูปทำ $n$ ครั้ง
 * สรุปค่า Big-O จาก $T(n)$:
-  * ถ้า $T(n) = c$ (ค่าคงที่) $ightarrow O(1)$
-  * ถ้า $T(n) = an + b$ $ightarrow O(n)$
-  * $T(n) = an^2 + bn + c$ $ightarrow O(n^2)$
-  * $T(n) = a \log n + b$ $ightarrow O(\log n)$
+  * ถ้า $T(n) = c$ (ค่าคงที่) $
+ightarrow O(1)$
+  * ถ้า $T(n) = an + b$ $
+ightarrow O(n)$
+  * $T(n) = an^2 + bn + c$ $
+ightarrow O(n^2)$
+  * $T(n) = a \log n + b$ $
+ightarrow O(\log n)$
 
 ---
 
@@ -85,9 +89,11 @@ $$	ext{Loc}(A[i]) = B + C_{	ext{byte}} 	imes (i - L)$$
 
 #### 📐 สูตรคำนวณ:
 1. **แบบ Row Major Order (เรียงตามแถวเป็นหลัก)**:
-   $$	ext{Loc}(A[i, j]) = B + C 	imes \left[(i - L_1) 	imes N + (j - L_2)ight]$$
+   $$	ext{Loc}(A[i, j]) = B + C 	imes \left[(i - L_1) 	imes N + (j - L_2)
+ight]$$
 2. **แบบ Column Major Order (เรียงตามคอลัมน์เป็นหลัก)**:
-   $$	ext{Loc}(A[i, j]) = B + C 	imes \left[(j - L_2) 	imes M + (i - L_1)ight]$$
+   $$	ext{Loc}(A[i, j]) = B + C 	imes \left[(j - L_2) 	imes M + (i - L_1)
+ight]$$
 
 * *หมายเหตุ*:
   * $M$ = จำนวนแถวทั้งหมด $= 5$
@@ -98,9 +104,11 @@ $$	ext{Loc}(A[i]) = B + C_{	ext{byte}} 	imes (i - L)$$
 > **โจทย์**: อาร์เรย์ $A$ ขนาด $5 	imes 10$ เมื่อ $A[1, 1]$ อยู่ที่แอดเดรส 1050 แต่ละช่องใช้พื้นที่ 4 Bytes จงหาแอดเดรสของ $A[3, 5]$
 > * **ข้อมูล**: $B = 1050, C = 4, M = 5, N = 10, L_1 = 1, L_2 = 1, i = 3, j = 5$
 > * **1. Row Major Order**:
->   $$	ext{Loc}(A[3, 5]) = 1050 + 4 	imes \left[(3 - 1) 	imes 10 + (5 - 1)ight] = 1050 + 4 	imes (20 + 4) = 1050 + 96 = 1146$$
+>   $$	ext{Loc}(A[3, 5]) = 1050 + 4 	imes \left[(3 - 1) 	imes 10 + (5 - 1)
+ight] = 1050 + 4 	imes (20 + 4) = 1050 + 96 = 1146$$
 > * **2. Column Major Order**:
->   $$	ext{Loc}(A[3, 5]) = 1050 + 4 	imes \left[(5 - 1) 	imes 5 + (3 - 1)ight] = 1050 + 4 	imes (20 + 2) = 1050 + 88 = 1138$$
+>   $$	ext{Loc}(A[3, 5]) = 1050 + 4 	imes \left[(5 - 1) 	imes 5 + (3 - 1)
+ight] = 1050 + 4 	imes (20 + 2) = 1050 + 88 = 1138$$
 
 ---
 
@@ -109,20 +117,29 @@ $$	ext{Loc}(A[i]) = B + C_{	ext{byte}} 	imes (i - L)$$
 1. แปลงนิพจน์ Infix ให้เป็น Postfix โดยแสดงตารางขั้นตอนการใช้ Stack
 2. หาผลลัพธ์ตัวเลขของนิพจน์ Postfix นั้น
 
-#### 1. กฎการแปลง Infix $ightarrow$ Postfix
+#### 1. กฎการแปลง Infix $
+ightarrow$ Postfix
 * ลำดับความสำคัญ Operator: `()` > `^` (3) > `*`, `/` (2) > `+`, `-` (1)
 * อ่าน Input จากซ้ายไปขวา:
-  * **Operand (ตัวเลข/ตัวแปร)** $ightarrow$ ส่งออกไปที่ Output
-  * **Operator** $ightarrow$ เปรียบเทียบกับตัวบนสุดใน Operator Stack (`opst`):
-    * ถ้า Input มี Precedence **สูงกว่า** ตัวบนสุดใน `opst` $ightarrow$ PUSH ลง `opst`
-    * ถ้า Input มี Precedence **น้อยกว่าหรือเท่ากับ** ตัวบนสุดใน `opst` $ightarrow$ POP ตัวใน `opst` ออกไป Output จนกว่าจะเจอตัวที่เล็กกว่า แล้วค่อย PUSH Input ลงไป
-  * **วงเล็บเปิด `(`** $ightarrow$ PUSH ลง `opst`
-  * **วงเล็บปิด `)`** $ightarrow$ POP ออกไป Output จนกว่าจะเจอ `(` (แล้วทิ้งวงเล็บทั้งคู่)
+  * **Operand (ตัวเลข/ตัวแปร)** $
+ightarrow$ ส่งออกไปที่ Output
+  * **Operator** $
+ightarrow$ เปรียบเทียบกับตัวบนสุดใน Operator Stack (`opst`):
+    * ถ้า Input มี Precedence **สูงกว่า** ตัวบนสุดใน `opst` $
+ightarrow$ PUSH ลง `opst`
+    * ถ้า Input มี Precedence **น้อยกว่าหรือเท่ากับ** ตัวบนสุดใน `opst` $
+ightarrow$ POP ตัวใน `opst` ออกไป Output จนกว่าจะเจอตัวที่เล็กกว่า แล้วค่อย PUSH Input ลงไป
+  * **วงเล็บเปิด `(`** $
+ightarrow$ PUSH ลง `opst`
+  * **วงเล็บปิด `)`** $
+ightarrow$ POP ออกไป Output จนกว่าจะเจอ `(` (แล้วทิ้งวงเล็บทั้งคู่)
 
 #### 2. กฎการหาผลลัพธ์จาก Postfix
 * อ่านนิพจน์ Postfix จากซ้ายไปขวา:
-  * เจอ **Operand** $ightarrow$ PUSH ลง Stack
-  * เจอ **Operator** $ightarrow$ POP ข้อมูลออก 2 ตัว ($Op2$ ออกมาก่อน, $Op1$ ออกตามหลัง)
+  * เจอ **Operand** $
+ightarrow$ PUSH ลง Stack
+  * เจอ **Operator** $
+ightarrow$ POP ข้อมูลออก 2 ตัว ($Op2$ ออกมาก่อน, $Op1$ ออกตามหลัง)
   * คำนวณ $	ext{Result} = Op1 	ext{ Operator } Op2$ แล้ว PUSH ผลลัพธ์กลับเข้า Stack
 
 ---
@@ -158,7 +175,12 @@ $$	ext{[ LLINK / PREV } | 	ext{ DATA / INFO } | 	ext{ RLINK / NEXT ]}$$
 
 1. **บทที่ 1**:
    * สมการโปรแกรม ($	ext{Data} + 	ext{Algorithm} = 	ext{Program}$)
-   * Data Hierarchy (Bit $ightarrow$ Byte $ightarrow$ Field $ightarrow$ Record $ightarrow$ File $ightarrow$ Database)
+   * Data Hierarchy (Bit $
+ightarrow$ Byte $
+ightarrow$ Field $
+ightarrow$ Record $
+ightarrow$ File $
+ightarrow$ Database)
    * Big-O Growth Rates: $O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!)$
 2. **บทที่ 2**:
    * คุณสมบัติอาร์เรย์: Homogeneous, Contiguous Memory, Random Access ($O(1)$), Static Size
@@ -167,7 +189,8 @@ $$	ext{[ LLINK / PREV } | 	ext{ DATA / INFO } | 	ext{ RLINK / NEXT ]}$$
    * Push (เช็ค **Overflow** เมื่อ `TOP == MAX`), Pop (เช็ค **Underflow** เมื่อ `TOP == 0`)
 4. **บทที่ 4**:
    * คิว: **FIFO**, เพิ่มที่ `REAR`, ลบที่ `FRONT`
-   * คิวเชิงเส้นมีปัญหา **False Overflow** $ightarrow$ แก้ด้วย **Circular Queue** (`(Rear + 1) % Size == Front`)
+   * คิวเชิงเส้นมีปัญหา **False Overflow** $
+ightarrow$ แก้ด้วย **Circular Queue** (`(Rear + 1) % Size == Front`)
 5. **บทที่ 5**:
    * ลิงค์ลิสต์: Dynamic Memory, ใช้ Pointer ชี้ต่อกัน, `AVAIL` คือกลุ่มโหนดว่าง
    * โหนดสุดท้ายชี้ `NULL`
