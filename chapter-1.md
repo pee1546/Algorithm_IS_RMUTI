@@ -3,19 +3,14 @@
 ### 1.1 ความหมายและเป้าหมายของโครงสร้างข้อมูล
 * **นิยาม**: รูปแบบความสัมพันธ์ของข้อมูลที่จัดเก็บอยู่ในหน่วยความจำคอมพิวเตอร์อย่างเป็นระเบียบ เพื่อให้เข้าถึงและจัดการข้อมูลได้อย่างมีประสิทธิภาพ
 * **สมการพื้นฐานของโปรแกรม**:
-  $$	ext{Data} + 	ext{Algorithms} = 	ext{Program}$$
+  $$\text{Data} + \text{Algorithms} = \text{Program}$$
 * **จุดมุ่งหมายหลัก**:
   1. ใช้พื้นที่หน่วยความจำน้อยที่สุด (Minimizing Memory Utilization / Space Efficiency)
   2. ใช้เวลาในการประมวลผลสั้นที่สุด (Minimizing Processing Time / Time Efficiency)
 
 ### 1.2 ลำดับขั้นของข้อมูล (Data Hierarchy)
 เรียงลำดับจากขนาดเล็กที่สุดไปใหญ่ที่สุด:
-$$	ext{Bit} 
-ightarrow 	ext{Byte} 
-ightarrow 	ext{Field} 
-ightarrow 	ext{Record} 
-ightarrow 	ext{File} 
-ightarrow 	ext{Database}$$
+$$\text{Bit} \rightarrow \text{Byte} \rightarrow \text{Field} \rightarrow \text{Record} \rightarrow \text{File} \rightarrow \text{Database}$$
 * **Bit (Binary Digit)**: หน่วยที่เล็กที่สุด (0 หรือ 1)
 * **Byte**: ตัวอักษร 1 ตัว (8 Bits = 1 Byte เช่น ASCII ของอักขระ 'I' คือ `01001001`)
 * **Field**: อักขระหลายตัวรวมกันเป็นความหมาย เช่น `Student_ID`, `Course`
@@ -43,11 +38,7 @@ ightarrow 	ext{Database}$$
   * *ข้อเสีย*: การเขียนโปรแกรมและจัดการ Pointer ซับซ้อนกว่า
 
 ### 1.5 ขั้นตอนการพัฒนาโปรแกรมและวิเคราะห์งาน (SDLC & Job Analysis)
-* **SDLC 5 ขั้นตอน**: Plan $
-ightarrow$ Design $
-ightarrow$ Develop $
-ightarrow$ Deploy $
-ightarrow$ Maintenance
+* **SDLC 5 ขั้นตอน**: Plan $\rightarrow$ Design $\rightarrow$ Develop $\rightarrow$ Deploy $\rightarrow$ Maintenance
 * **องค์ประกอบการวิเคราะห์โจทย์ (Job Analysis)**:
   1. สิ่งที่โจทย์ต้องการ (Requirement/Goal)
   2. ข้อมูลนำเข้า (Input) & ตัวแปรที่ใช้ (Variables)
@@ -78,19 +69,11 @@ ightarrow$ Maintenance
 * **การเรียงลำดับ อัตราการเติบโตของฟังก์ชัน Big-O (จากเร็วที่สุดไปช้าที่สุด)**:
   $$O(1) < O(\log_2 n) < O(n) < O(n \log_2 n) < O(n^2) < O(n^3) < O(n^k) < O(2^n) < O(n!)$$
 * **วิเคราะห์รูปแบบการวนลูป (Loop Analysis)**:
-  * **Linear Loop**: `for(i=0; i<n; i++)` $
-ightarrow O(n)$
-  * **Step Linear Loop**: `for(i=0; i<n; i+=2)` $
-ightarrow f(n)=n/2 
-ightarrow O(n)$
-  * **Logarithmic Loop**: `for(i=1; i<n; i*=2)` หรือ `i/=2` $
-ightarrow O(\log_2 n)$
-  * **Nested Loop (Independent)**: ลูปนอก $n$ ลูปใน $n 
-ightarrow O(n^2)$
-  * **Nested Loop (Linear Logarithmic)**: ลูปนอก $n$ ลูปใน $\log n 
-ightarrow O(n \log n)$
-  * **Dependent Loop**: ลูปในขึ้นกับ $i 
-ightarrow 1+2+...+n = rac{n(n+1)}{2} = rac{n^2+n}{2} 
-ightarrow O(n^2)$
+  * **Linear Loop**: `for(i=0; i<n; i++)` $\rightarrow O(n)$
+  * **Step Linear Loop**: `for(i=0; i<n; i+=2)` $\rightarrow f(n)=n/2 \rightarrow O(n)$
+  * **Logarithmic Loop**: `for(i=1; i<n; i*=2)` หรือ `i/=2` $\rightarrow O(\log_2 n)$
+  * **Nested Loop (Independent)**: ลูปนอก $n$ ลูปใน $n \rightarrow O(n^2)$
+  * **Nested Loop (Linear Logarithmic)**: ลูปนอก $n$ ลูปใน $\log n \rightarrow O(n \log n)$
+  * **Dependent Loop**: ลูปในขึ้นกับ $i \rightarrow 1+2+...+n = \frac{n(n+1)}{2} = \frac{n^2+n}{2} \rightarrow O(n^2)$
 
 ---

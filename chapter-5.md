@@ -32,7 +32,7 @@
 
 ### 5.4 ลิงค์ลิสต์คู่ (Doubly Linked List)
 แต่ละโหนดมีพอยน์เตอร์ 2 ทิศทาง:
-$$	ext{[ LLINK / PREV } | 	ext{ DATA } | 	ext{ RLINK / NEXT ]}$$
+$$\text{[ LLINK / PREV } | \text{ DATA } | \text{ RLINK / NEXT ]}$$
 * **LLINK / PREV**: ชี้ไปยังโหนดก่อนหน้า
 * **RLINK / NEXT**: ชี้ไปยังโหนดถัดไป
 

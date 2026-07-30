@@ -11,11 +11,11 @@
 ---
 
 ### 📌 2. รวบรวมสูตรคำนวณตำแหน่งในหน่วยความจำของ Array
-* **1 มิติ**: $	ext{Loc}(A[i]) = B + C 	imes (i - L)$
-* **2 มิติ Row Major**: $	ext{Loc}(A[i, j]) = B + C 	imes [(i - L_1) 	imes N + (j - L_2)]$
-* **2 มิติ Column Major**: $	ext{Loc}(A[i, j]) = B + C 	imes [(j - L_2) 	imes M + (i - L_1)]$
-* **3 มิติ Row Major**: $	ext{Loc}(A[i, j, k]) = B + C 	imes [(i - L_1) \cdot M \cdot N + (j - L_2) \cdot N + (k - L_3)]$
-* **3 มิติ Column Major**: $	ext{Loc}(A[i, j, k]) = B + C 	imes [(i - L_1) \cdot M \cdot N + (k - L_3) \cdot M + (j - L_2)]$
+* **1 มิติ**: $\text{Loc}(A[i]) = B + C(i - L)$
+* **2 มิติ Row Major**: $\text{Loc}(A[i, j]) = B + C[(i - L_1)N + (j - L_2)]$
+* **2 มิติ Column Major**: $\text{Loc}(A[i, j]) = B + C[(j - L_2)M + (i - L_1)]$
+* **3 มิติ Row Major**: $\text{Loc}(A[i, j, k]) = B + C[(i - L_1)MN + (j - L_2)N + (k - L_3)]$
+* **3 มิติ Column Major**: $\text{Loc}(A[i, j, k]) = B + C[(i - L_1)MN + (k - L_3)M + (j - L_2)]$
 
 ---
 
